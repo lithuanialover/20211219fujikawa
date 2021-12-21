@@ -1,12 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ContactController;
 
-//Route::get('/', [IndexController::class, 'index']);
-
-// 入力画面
-Route::get('/', [IndexController::class],'index');
-
-// 完了画面
-Route::post('/', [IndexController::class],'thanks');
+Route::get('/', [ContactController::class, 'index']);
+Route::post('/', [ContactController::class, 'post']);
+Route::get('/thanks', function () {
+    return view('thanks');
+});
